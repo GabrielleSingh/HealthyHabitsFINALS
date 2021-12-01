@@ -1,0 +1,251 @@
+﻿@model IEnumerable<HealthyHabits.Models.Habit>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Table with Add and Delete Row Feature</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            color: #404E67;
+            background: #F5F7FA;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .table-wrapper {
+            width: 700px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        }
+
+        .table-title {
+            padding-bottom: 10px;
+            margin: 0 0 10px;
+        }
+
+            .table-title h2 {
+                margin: 6px 0 0;
+                font-size: 22px;
+            }
+
+            .table-title .add-new {
+                float: right;
+                height: 30px;
+                font-weight: bold;
+                font-size: 12px;
+                text-shadow: none;
+                min-width: 100px;
+                border-radius: 50px;
+                line-height: 13px;
+            }
+
+                .table-title .add-new i {
+                    margin-right: 4px;
+                }
+
+        table.table {
+            table-layout: fixed;
+        }
+
+            table.table tr th, table.table tr td {
+                border-color: #e9e9e9;
+            }
+
+            table.table th i {
+                font-size: 13px;
+                margin: 0 5px;
+                cursor: pointer;
+            }
+
+            table.table th:last-child {
+                width: 100px;
+            }
+
+            table.table td a {
+                cursor: pointer;
+                display: inline-block;
+                margin: 0 5px;
+                min-width: 24px;
+            }
+
+                table.table td a.add {
+                    color: #077b8a;
+                }
+
+                table.table td a.edit {
+                    color: #5c3c92;
+                }
+
+                table.table td a.delete {
+                    color: #d72631;
+                }
+
+            table.table td i {
+                font-size: 19px;
+            }
+
+            table.table td a.add i {
+                font-size: 24px;
+                margin-right: -1px;
+                position: relative;
+                top: 3px;
+            }
+
+            table.table .form-control {
+                height: 32px;
+                line-height: 32px;
+                box-shadow: none;
+                border-radius: 2px;
+            }
+
+                table.table .form-control.error {
+                    border-color: #f50000;
+                }
+
+            table.table td .add {
+                display: none;
+            }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"><i class="fa fa-tasks" aria-hidden="true"></i>Healthy<b>Habits</b></a>
+        </div>
+        <!-- Collection of nav links, forms, and other content for toggling -->
+
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Us<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+
+            <li><a href="#">Badges</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#"><i class="fa fa-gamepad" aria-hidden="true"></i>15 POINTS</a></li>
+
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="notifications"><i class="fa fa-bell-o"></i><span class="badge">1</span></a></li>
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle user-action"> <i class="fa fa-user-circle" aria-hidden="true"></i> Paula Wilson <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa fa-user-o"></i> Profile</a></li>
+                    <li><a href="#"><i class="fa fa-calendar-o"></i> Calendar</a></li>
+                    <li><a href="#"><i class="fa fa-sliders"></i> Settings</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="material-icons">&#xE8AC;</i> Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </nav>
+    <div class="container">
+        <img src="https://freepngimg.com/thumb/cute/30152-1-cute-cartoon-transparent.png" width="500" height="500">
+    </div>
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2><b>Habits</b></h2></div>
+                    <div class="col-sm-4">
+                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                        <button type="button" class="btn btn-info add-new"><i class="fa fa-paw" aria-hidden="true"></i>Change Pet</button>
+                        <button type="button" class="btn btn-info add-new"><i class="fa fa-briefcase" aria-hidden="true"></i> Accessorize Pet</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+<div class="container">
+    <div class="table-wrapper">
+
+
+
+
+        <p>
+            <a asp-action="Create">Create New<i class="material-icons">&#xE03B;</i></a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HabitName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HabitDesc)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IncompHB)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BadgeID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Type)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HabitName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HabitDesc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IncompHB)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BadgeID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.HabitID">Edit<i class="material-icons">&#xE254;</i></a> |
+                            <a asp-action="Delete" asp-route-id="@item.HabitID"
+                               onclick='return confirm("Are you sure?");'>Delete <i class="material-icons">&#xE872;</i> </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+
+    </div>
+
+</div>
